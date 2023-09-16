@@ -73,9 +73,9 @@ class Game{
     this.ctx.stroke();
 
     //スコア
-    this.ctx.font = "10pt Arial";
+    this.ctx.font = "20pt Arial";
     this.ctx.fillStyle = "black";
-    this.ctx.fillText(`SCORE: ${Math.round(this.score)}`,500,50);
+    this.ctx.fillText(`SCORE: ${Math.round(this.score)}`,600,50);
   }
 
   key(event){
