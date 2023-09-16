@@ -54,7 +54,7 @@ class Game{
     if(event.code === "Space"){
       if(this.character.posY !== this.character.initPosY) return;
       
-      this.character.speedY = -20;
+      this.character.speedY = -25;
       this.character.accY = 1.5;
     }
   }
