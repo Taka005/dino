@@ -52,7 +52,9 @@ class Game{
 
   key(event){
     if(event.code === "Space"){
-      this.character.speedY = -10;
+      if(this.character.posY !== 300) return;
+      
+      this.character.speedY = -30;
       this.character.accY = 1.5;
     }
   }
