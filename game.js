@@ -38,7 +38,7 @@ class Game{
       this.character.accY = 0;
     }
 
-    this.enemy.posX -= 10;
+    this.enemy.posX -= 15;
     if(this.enemy.posX < -100){
       this.enemy.posX = 1200;
     }
@@ -72,8 +72,8 @@ class Game{
     if(event.code === "Space"){
       if(this.character.posY !== this.character.initPosY) return;
       
-      this.character.speedY = -25;
-      this.character.accY = 1;
+      this.character.speedY = -20;
+      this.character.accY = 1.2;
     }
   }
 }
