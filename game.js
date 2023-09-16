@@ -49,7 +49,7 @@ class Game{
     }
 
     //当たり判定
-    console.log(Math.sqrt((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2))
+    console.log((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2)
     if(Math.sqrt((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2) <= this.character.size + this.enemy.size){
       this.stop();
     }
