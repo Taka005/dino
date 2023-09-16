@@ -8,7 +8,7 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",0,300);
+    this.character = new Character("./img/avatar.png",100,300);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -30,7 +30,7 @@ class Game{
   update(){
     this.character.posX += 1;
     this.character.speedY -= this.character.accY;
-    this.character.posY -= this.character.speedY + this.character.accY;
+    this.character.posY += this.character.speedY;
     if(this.character.posY > 300){
       this.character.posY = 300;
       this.character.speedY = 0;
