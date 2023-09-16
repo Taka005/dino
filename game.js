@@ -1,7 +1,7 @@
 class Game{
   constructor(){
     this.canvas = document.getElementById("game");
-    this.ctx = this.canvas.getContext("2d");
+    this.ctx = this.canvas.getthis.ctx("2d");
   }
 
   /**
@@ -47,6 +47,13 @@ class Game{
       this.character.posX - this.character.image.width/2,
       this.character.posY - this.character.image.height/2
     );
+
+    this.ctx.beginPath();
+    this.ctx.moveTo(0,this.character.initPosY);
+    this.ctx.lineTo(this.canvas.width,this.character.initPosY)
+    this.ctx.strokeStyle = "black";
+    this.ctx.lineWidth = 5;
+    this.ctx.stroke();
   }
 
   key(event){
