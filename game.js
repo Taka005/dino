@@ -8,7 +8,7 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./avatar",30,250);
+    this.character = new Character("./img/avatar.png",30,250);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,canvas.width,canvas.height);
