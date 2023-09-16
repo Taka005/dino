@@ -8,7 +8,7 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",30,250);
+    this.character = new Block("./img/avatar.png",30,250);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -28,7 +28,7 @@ class Game{
    * 更新
    */
   update(){
-    this.character.posX += 5;
+    this.character.posX += 1;
   }
 
   /**
@@ -43,7 +43,7 @@ class Game{
   }
 }
 
-class Character{
+class Block{
   constructor(img,posX,posY){
     this.image = new Image();
     this.image.src = img;
