@@ -50,7 +50,7 @@ class Game{
 
     //当たり判定
     if(Math.sqrt((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2) <= this.character.size + this.enemy.size){
-      this.enemy.speedX = 0;
+      this.stop();
     }
   }
 
