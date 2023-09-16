@@ -45,7 +45,7 @@ class Game{
 
 class Character{
   constructor(img,width,height,posX,posY){
-    this.image = new Image(width.height);
+    this.image = new Image(width,height);
     this.image.src = img;
 
     this.posX = posX;
