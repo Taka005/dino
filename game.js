@@ -61,8 +61,8 @@ class Game{
     );
 
     this.ctx.beginPath();
-    this.ctx.moveTo(0,this.character.initPosY - this.character.image.height/2);
-    this.ctx.lineTo(this.canvas.width,this.character.initPosY - this.character.image.height/2)
+    this.ctx.moveTo(0,this.character.initPosY + this.character.image.height/2);
+    this.ctx.lineTo(this.canvas.width,this.character.initPosY + this.character.image.height/2)
     this.ctx.strokeStyle = "black";
     this.ctx.lineWidth = 1;
     this.ctx.stroke();
@@ -73,7 +73,7 @@ class Game{
       if(this.character.posY !== this.character.initPosY) return;
       
       this.character.speedY = -25;
-      this.character.accY = 1.5;
+      this.character.accY = 1;
     }
   }
 }
