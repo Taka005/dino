@@ -49,8 +49,9 @@ class Game{
     }
 
     //当たり判定
-    console.log((this.character.posX - this.enemy.posX) * (this.character.posX - this.enemy.posX))
-    if(Math.sqrt((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2) <= this.character.size + this.enemy.size){
+    const diffX = this.character.posX - this.enemy.posX;
+    const diffY = this.character.posY - this.enemy.posY;
+    if(Math.sqrt(diffX*diffX + diffY*diffY) <= this.character.size + this.enemy.size){
       this.stop();
     }
   }
