@@ -32,8 +32,8 @@ class Game{
     this.character.speedY += this.character.accY;
     this.character.posY += this.character.speedY;
 
-    if(this.character.posY > 300){
-      this.character.posY = 300;
+    if(this.character.posY > this.character.image.height){
+      this.character.posY = this.character.image.height;
       this.character.speedY = 0;
       this.character.accY = 0;
     }
@@ -52,9 +52,9 @@ class Game{
 
   key(event){
     if(event.code === "Space"){
-      if(this.character.posY !== 300) return;
+      if(this.character.posY !== this.character.image.height) return;
       
-      this.character.speedY = -30;
+      this.character.speedY = -20;
       this.character.accY = 1.5;
     }
   }
