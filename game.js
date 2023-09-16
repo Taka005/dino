@@ -10,8 +10,8 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",150,400,32);
-    this.enemy = new Character("./img/enemy.png",1200,400,32);
+    this.character = new Character("./img/avatar.png",150,400,64);
+    this.enemy = new Character("./img/enemy.png",1200,400,64);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
