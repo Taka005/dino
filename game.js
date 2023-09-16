@@ -9,6 +9,7 @@ class Game{
    */
   start(){
     this.character = new Character("./img/avatar.png",150,350);
+    this.enemy = new Character("./img/enemy.png",1200,350);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -36,6 +37,11 @@ class Game{
       this.character.speedY = 0;
       this.character.accY = 0;
     }
+
+    this.enemy.posX -= 10;
+    if(this.enemy.posX < -100){
+      this.enemy.posX = 1200;
+    }
   }
 
   /**
@@ -48,11 +54,17 @@ class Game{
       this.character.posY - this.character.image.height/2
     );
 
+    this.ctx.drawImage(
+      this.enemy.image,
+      this.enemy.posX - this.enemy.image.width/2,
+      this.enemy.posY - this.enemy.image.height/2
+    );
+
     this.ctx.beginPath();
-    this.ctx.moveTo(0,this.character.initPosY);
-    this.ctx.lineTo(this.canvas.width,this.character.initPosY)
+    this.ctx.moveTo(0,this.character.initPosY - this.character.image.height/2);
+    this.ctx.lineTo(this.canvas.width,this.character.initPosY - this.character.image.height/2)
     this.ctx.strokeStyle = "black";
-    this.ctx.lineWidth = 5;
+    this.ctx.lineWidth = 1;
     this.ctx.stroke();
   }
 
