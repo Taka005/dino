@@ -10,8 +10,8 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",150,400);
-    this.enemy = new Character("./img/enemy.png",1200,400);
+    this.character = new Character("./img/avatar.png",150,400,64);
+    this.enemy = new Character("./img/enemy.png",1200,400,64);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -42,9 +42,15 @@ class Game{
       this.character.accY = 0;
     }
 
-    this.enemy.posX -= 15;
+    this.enemy.speedX = 15;
+    this.enemy.posX -= this.enemy.speedX;
     if(this.enemy.posX < -100){
       this.enemy.posX = 1200;
+    }
+
+    //当たり判定
+    if(Math.sqrt((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2) <= this.character.size + this.enemy.size){
+      this.enemy.speedX = 0;
     }
   }
 
@@ -89,7 +95,7 @@ class Game{
 }
 
 class Character{
-  constructor(img,posX,posY){
+  constructor(img,posX,posY,size){
     this.image = new Image();
     this.image.src = img;
 
@@ -103,6 +109,8 @@ class Character{
 
     this.accX = 0;
     this.accY = 0;
+
+    this.size = size;
   }
 }
 
