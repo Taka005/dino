@@ -53,5 +53,5 @@ class Character{
   }
 }
 
-const Game = new Game();
-Game.start();
+const game = new Game();
+game.start();
