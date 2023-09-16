@@ -2,19 +2,23 @@ class Game{
   constructor(){
     this.canvas = document.getElementById("game");
     this.ctx = this.canvas.getContext("2d");
+
+    this.score = 0;
   }
 
   /**
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",150,350);
-    this.enemy = new Character("./img/enemy.png",1200,350);
+    this.character = new Character("./img/avatar.png",150,400);
+    this.enemy = new Character("./img/enemy.png",1200,400);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
       this.update();
       this.draw();
+
+      this.score += 0.25;
     },20);
   }
 
@@ -72,7 +76,7 @@ class Game{
     if(event.code === "Space"){
       if(this.character.posY !== this.character.initPosY) return;
       
-      this.character.speedY = -20;
+      this.character.speedY = -25;
       this.character.accY = 1.2;
     }
   }
