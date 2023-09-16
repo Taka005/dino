@@ -12,6 +12,7 @@ class Game{
   start(){
     this.character = new Character("./img/avatar.png",150,400,64);
     this.enemy = new Character("./img/enemy.png",1200,400,64);
+    this.enemy.speedX = 15;
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -42,8 +43,8 @@ class Game{
       this.character.accY = 0;
     }
 
-    this.enemy.speedX = 15;
-    this.enemy.posX -= this.enemy.speedX;
+    this.enemy.speedX += 0.1;
+    this.enemy.posX -= Math.round(this.enemy.speedX);
     if(this.enemy.posX < -100){
       this.enemy.posX = 1200;
     }
