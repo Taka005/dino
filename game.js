@@ -64,12 +64,18 @@ class Game{
       this.enemy.posY - this.enemy.image.height/2
     );
 
+    //線
     this.ctx.beginPath();
     this.ctx.moveTo(0,this.character.initPosY + this.character.image.height/2);
     this.ctx.lineTo(this.canvas.width,this.character.initPosY + this.character.image.height/2)
     this.ctx.strokeStyle = "black";
     this.ctx.lineWidth = 1;
     this.ctx.stroke();
+
+    //スコア
+    this.ctx.font = "10pt Arial";
+    this.ctx.fillStyle = "black";
+    this.ctx.fillText(`SCORE: ${Math.round(this.score)}`,500,50);
   }
 
   key(event){
