@@ -43,7 +43,7 @@ class Game{
       this.character.accY = 0;
     }
 
-    this.enemy.speedX += 0.1;
+    this.enemy.speedX += 0.05;
     this.enemy.posX -= Math.round(this.enemy.speedX);
     if(this.enemy.posX < -100){
       this.enemy.posX = 1200;
