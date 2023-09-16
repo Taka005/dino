@@ -12,7 +12,7 @@ class Game{
   start(){
     this.player = new Character("./img/avatar.png",150,400,64);
     this.enemy = new Character("./img/enemy.png",1200,400,64);
-    
+
     this.enemy.speedX = 15;
 
     this.loop = setInterval(()=>{
@@ -62,11 +62,8 @@ class Game{
    * 描画
    */
   draw(){
-    this.ctx.drawImage(
-      this.player.image,
-      this.player.posX - this.player.image.width/2,
-      this.player.posY - this.player.image.height/2
-    );
+    this.player.draw(this.ctx);
+    this.enemy.draw(this.ctx);
 
     this.ctx.drawImage(
       this.enemy.image,
@@ -115,6 +112,14 @@ class Character{
     this.accY = 0;
 
     this.size = size;
+  }
+
+  draw(ctx){
+    ctx.drawImage(
+      this.image,
+      this.posX - this.image.width/2,
+      this.posY - this.image.height/2
+    );
   }
 }
 
