@@ -11,7 +11,7 @@ class Game{
     this.character = new Character("./img/avatar.png",30,30,30,250);
 
     this.loop = setInterval(()=>{
-      this.ctx.clearRect(0,0,canvas.width,canvas.height);
+      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
       this.update();
       this.draw();
     },20);
