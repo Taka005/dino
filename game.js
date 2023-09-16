@@ -28,7 +28,7 @@ class Game{
    * 更新
    */
   update(){
-    this.character.posX += this.character.speedX;
+    this.character.posX += 1;
     this.character.posY = this.character.speedY + this.acc;
     if(this.character.posY > 300){
       this.character.posY = 300;
