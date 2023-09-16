@@ -8,7 +8,7 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",80,300);
+    this.character = new Character("./img/avatar.png",0,300);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -29,7 +29,8 @@ class Game{
    */
   update(){
     this.character.posX += 1;
-    this.character.posY = this.character.speedY + this.acc;
+    this.character.speedY -= this.character.accY;
+    this.character.posY -= this.character.speedY + this.character.accY;
     if(this.character.posY > 300){
       this.character.posY = 300;
       this.character.speedY = 0;
@@ -50,7 +51,7 @@ class Game{
 
   key(event){
     if(event.code === "Space"){
-      this.character.speedY = -20;
+      this.character.speedY = -10;
       this.character.accY = 1.5;
     }
   }
