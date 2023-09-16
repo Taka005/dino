@@ -10,8 +10,9 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",150,400,64);
+    this.player = new Character("./img/avatar.png",150,400,64);
     this.enemy = new Character("./img/enemy.png",1200,400,64);
+    
     this.enemy.speedX = 15;
 
     this.loop = setInterval(()=>{
@@ -34,25 +35,25 @@ class Game{
    * 更新
    */
   update(){
-    this.character.speedY += this.character.accY;
-    this.character.posY += this.character.speedY;
+    this.player.speedY += this.player.accY;
+    this.player.posY += this.player.speedY;
 
-    if(this.character.posY > this.character.initPosY){
-      this.character.posY = this.character.initPosY;
-      this.character.speedY = 0;
-      this.character.accY = 0;
+    if(this.player.posY > this.player.initPosY){
+      this.player.posY = this.player.initPosY;
+      this.player.speedY = 0;
+      this.player.accY = 0;
     }
 
-    this.enemy.speedX += 0.001;
+    this.enemy.speedX += 0.005;
     this.enemy.posX -= Math.round(this.enemy.speedX);
     if(this.enemy.posX < -100){
       this.enemy.posX = 1200;
     }
 
     //当たり判定
-    const diffX = this.character.posX - this.enemy.posX;
-    const diffY = this.character.posY - this.enemy.posY;
-    if(Math.sqrt(diffX*diffX + diffY*diffY) <= this.character.size + this.enemy.size){
+    const diffX = this.player.posX - this.enemy.posX;
+    const diffY = this.player.posY - this.enemy.posY;
+    if(Math.sqrt(diffX*diffX + diffY*diffY) <= this.player.size + this.enemy.size){
       this.stop();
     }
   }
@@ -62,9 +63,9 @@ class Game{
    */
   draw(){
     this.ctx.drawImage(
-      this.character.image,
-      this.character.posX - this.character.image.width/2,
-      this.character.posY - this.character.image.height/2
+      this.player.image,
+      this.player.posX - this.player.image.width/2,
+      this.player.posY - this.player.image.height/2
     );
 
     this.ctx.drawImage(
@@ -75,8 +76,8 @@ class Game{
 
     //線
     this.ctx.beginPath();
-    this.ctx.moveTo(0,this.character.initPosY + this.character.image.height/2);
-    this.ctx.lineTo(this.canvas.width,this.character.initPosY + this.character.image.height/2)
+    this.ctx.moveTo(0,this.player.initPosY + this.player.image.height/2);
+    this.ctx.lineTo(this.canvas.width,this.player.initPosY + this.player.image.height/2)
     this.ctx.strokeStyle = "black";
     this.ctx.lineWidth = 1;
     this.ctx.stroke();
@@ -89,10 +90,10 @@ class Game{
 
   key(event){
     if(event.code === "Space"){
-      if(this.character.posY !== this.character.initPosY) return;
+      if(this.player.posY !== this.player.initPosY) return;
       
-      this.character.speedY = -25;
-      this.character.accY = 1.2;
+      this.player.speedY = -25;
+      this.player.accY = 1.2;
     }
   }
 }
