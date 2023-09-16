@@ -10,8 +10,8 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.character = new Character("./img/avatar.png",150,400,64);
-    this.enemy = new Character("./img/enemy.png",1200,400,64);
+    this.character = new Character("./img/avatar.png",150,400,32);
+    this.enemy = new Character("./img/enemy.png",1200,400,32);
 
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -49,7 +49,7 @@ class Game{
     }
 
     //当たり判定
-    if(Math.sqrt((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2) <= this.character.size + this.enemy.size){
+    if((this.character.posX - this.enemy.posX)^2 + (this.character.posY - this.enemy.posY)^2 <= (this.character.size + this.enemy.size)^2){
       this.stop();
     }
   }
