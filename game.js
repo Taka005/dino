@@ -68,7 +68,7 @@ class Game{
 
     if(this.count === this.nextEnemy){
       this.genEnemy();
-      this.nextEnemy += Math.floor(100*Math.random()) + 50;
+      this.nextEnemy += Math.floor(80*Math.random()) + 50;
     }
   }
 
@@ -90,7 +90,7 @@ class Game{
   genEnemy(){
     const enemy = new Character("./img/enemy.png",1000,400 - (Math.random() > 0.5? 150 : 0),64);
 
-    enemy.speedX = 10*Math.random() + 10;
+    enemy.speedX = 15*Math.random()+10;
 
     this.enemys.push(enemy);
   }
