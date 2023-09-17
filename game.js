@@ -16,6 +16,8 @@ class Game{
     this.ctx.font = "50pt Arial";
     this.ctx.fillStyle = "black";
     this.ctx.fillText("キーを押してスタート...",130,300);
+
+    this.debug = false;
   }
 
   /**
@@ -98,7 +100,16 @@ class Game{
    */
   draw(){
     this.player.draw(this.ctx);
-    this.enemys.forEach(e=>e.draw(this.ctx));
+    if(this.debug){
+      this.player.size(this.ctx);
+    }
+    
+    this.enemys.forEach(e=>{
+      e.draw(this.ctx);
+      if(this.debug){
+        e.size(this.ctx);
+      }
+    });
 
     this.grounds.forEach(g=>g.draw(this.ctx));
 
@@ -141,11 +152,17 @@ class Game{
       
       this.player.speedY = -30;
       this.player.accY = 1.5;
-    }else if(event.shiftKey && event.code === "Space"){
+    }else if(event.code === "ShiftLeft"){
       if(this.player.posY !== 400) return;
       
       this.player.speedY = -15;
       this.player.accY = 1.5;
+    }else if(event.code === "KeyD"){
+      if(this.debug){
+        this.debug = false;
+      }else{
+        this.debug = true;
+      }
     }
   }
 
@@ -177,6 +194,14 @@ class Character{
       this.posX - this.image.width/2,
       this.posY - this.image.height/2
     );
+  }
+
+  size(ctx){
+    ctx.beginPath();
+    ctx.arc(this.posX,this.posY,this.size,0*Math.PI/180,360*Math.PI/180,false );
+    ctx.strokeStyle = "red";
+    ctx.lineWidth =1;
+    ctx.stroke();
   }
 }
 
