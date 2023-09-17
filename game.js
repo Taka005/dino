@@ -9,7 +9,12 @@ class Game{
 
     this.score = 0;
 
+    this.isStart = false;
     this.isGameOver = false;
+
+    this.ctx.font = "50pt Arial";
+    this.ctx.fillStyle = "black";
+    this.ctx.fillText("キーを押してスタート...",100,300);
   }
 
   /**
@@ -40,7 +45,12 @@ class Game{
    */
   stop(){
     clearInterval(this.loop);
+
     this.isGameOver = true;
+
+    this.ctx.font = "50pt Arial";
+    this.ctx.fillStyle = "black";
+    this.ctx.fillText("GAME OVER",100,300);
   }
 
   /**
@@ -93,7 +103,7 @@ class Game{
   genEnemy(){
     const enemy = this.random([
       new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
-      new Character("./img/enemy2.png",1000,420,40)
+      new Character("./img/enemy2.png",1000,420,43)
     ]);
 
     enemy.speedX = 15*Math.random()+10;
@@ -102,12 +112,16 @@ class Game{
   }
 
   key(event){
-    if(this.isGameOver){
+    if(!this.isStart){
+      this.isStart = true;
+      this.start();
+    }else if(this.isGameOver){
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 
       this.enemys = [];
       this.nextEnemy = 0;
       this.count = 0;
+      this.score = 0;
 
       this.isGameOver = false;
 
@@ -170,7 +184,6 @@ class Block{
 }
 
 const game = new Game();
-game.start();
 
 document.addEventListener("keydown",(event)=>{
   game.key(event);
