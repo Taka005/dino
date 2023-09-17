@@ -22,6 +22,7 @@ class Game{
       this.draw();
 
       this.score += 0.2;
+      this.count ++;
     },20);
   }
 
@@ -36,8 +37,6 @@ class Game{
    * 更新
    */
   update(){
-    this.count++;
-
     this.player.speedY += this.player.accY;
     this.player.posY += this.player.speedY;
 
@@ -62,7 +61,7 @@ class Game{
 
     if(this.count === this.nextEnemy){
       this.genEnemy();
-      this.nextEnemy += Math.floor(this.count+150*Math,random()); 
+      this.nextEnemy += this.count + Math.floor(150*Math,random()); 
     }
   }
 
@@ -93,7 +92,7 @@ class Game{
       "./img/enemy1.png"
     ]);
 
-    const enemy = new Character(image,1200,400 - Math.random() > 0.5? 40: 0,64);
+    const enemy = new Character(image,1200,400 - (Math.random() > 0.5? 40: 0),64);
 
     enemy.speedX = 15 * Math.random();
 
