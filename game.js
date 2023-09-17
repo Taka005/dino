@@ -136,7 +136,8 @@ class Game{
       new Character("./img/enemy3.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
       new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
       new Character("./img/enemy5.png",1000,400,64),
-      new Character("./img/enemy6.png",1000,410,25)
+      new Character("./img/enemy6.png",1000,410,25),
+      new Character("./img/enemy7.png",1000,400,64)
     ]);
 
     enemy.speedX = 15*Math.random()+10;
@@ -145,7 +146,27 @@ class Game{
   }
 
   key(event){
-    if(!this.isStart){
+    if(event.code === "KeyF"){
+      if(!this.isFullScreen){
+        if(this.canvas.requestFullscreen){
+          this.canvas.requestFullscreen(); 
+        }else if(this.canvas.webkitRequestFullscreen){
+          this.canvas.webkitRequestFullscreen();
+        }else if(this.canvas.mozRequestFullScreen){
+          this.canvas.mozRequestFullScreen();
+        }else if(this.canvas.msRequestFullscreen){
+          this.canvas.msRequestFullscreen(); 
+        }
+      }else{
+        if(document.webkitCancelFullScreen){
+          document.webkitCancelFullScreen();
+        }else if(document.mozCancelFullScreen){
+          document.mozCancelFullScreen();
+        }else{
+          document.exitFullscreen();
+        }
+      }
+    }else if(!this.isStart){
       this.isStart = true;
       this.start();
     }else if(this.isGameOver){
@@ -174,26 +195,6 @@ class Game{
         this.debug = false;
       }else{
         this.debug = true;
-      }
-    }else if(event.code === "KeyF"){
-      if(!this.isFullScreen){
-        if(this.canvas.requestFullscreen){
-          this.canvas.requestFullscreen(); 
-        }else if(this.canvas.webkitRequestFullscreen){
-          this.canvas.webkitRequestFullscreen();
-        }else if(this.canvas.mozRequestFullScreen){
-          this.canvas.mozRequestFullScreen();
-        }else if(this.canvas.msRequestFullscreen){
-          this.canvas.msRequestFullscreen(); 
-        }
-      }else{
-        if(document.webkitCancelFullScreen){
-          document.webkitCancelFullScreen();
-        }else if(document.mozCancelFullScreen){
-          document.mozCancelFullScreen();
-        }else{
-          document.exitFullscreen();
-        }
       }
     }
   }
