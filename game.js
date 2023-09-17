@@ -53,7 +53,7 @@ class Game{
     this.ctx.fillText("GAME OVER",120,300);
 
     this.ctx.font = "30pt Arial";
-    this.ctx.fillText("キーを押してスタート...",150,350);
+    this.ctx.fillText("キーを押してスタート...",200,350);
   }
 
   /**
