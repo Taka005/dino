@@ -8,6 +8,7 @@ class Game{
     this.count = 0;
 
     this.score = 0;
+    this.highScore = 0;
 
     this.isStart = false;
     this.isGameOver = false;
@@ -53,7 +54,11 @@ class Game{
     this.ctx.fillText("GAME OVER",120,300);
 
     this.ctx.font = "30pt Arial";
-    this.ctx.fillText("キーを押してスタート...",200,350);
+    this.ctx.fillText("キーを押してスタート...",250,350);
+
+    if(this.highScore < this.score){
+      localStorage.score = this.score;
+    }
   }
 
   /**
@@ -100,7 +105,7 @@ class Game{
     //スコア
     this.ctx.font = "20pt Arial";
     this.ctx.fillStyle = "black";
-    this.ctx.fillText(`SCORE: ${Math.round(this.score)}`,600,50);
+    this.ctx.fillText(`ハイスコア: ${localStorage.score}  スコア: ${Math.round(this.score)}`,500,50);
   }
 
   genEnemy(){
