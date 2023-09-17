@@ -24,7 +24,7 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.player = new Character("./img/avatar.png",150,400,64);
+    this.player = new Character("./img/avatar.png",150,400,50);
 
     this.grounds = [
       new Block("./img/ground.png",0,464),
@@ -96,7 +96,7 @@ class Game{
     }
 
     this.grounds.forEach(g=>{
-      g.posX -= 5;
+      g.posX -= 4;
       if(g.posX <= -256){
         g.posX = 893;
       }
@@ -133,7 +133,8 @@ class Game{
       new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
       new Character("./img/enemy2.png",1000,425,40),
       new Character("./img/enemy3.png",1000,448 - (Math.random() > 0.85 ? 120 : 0),16),
-      new Character("./img/enemy4.png",1000,448 - (Math.random() > 0.85 ? 120 : 0),16)
+      new Character("./img/enemy4.png",1000,448 - (Math.random() > 0.85 ? 120 : 0),16),
+      new Character("./img/enemy5.png",1000,400,60),
     ]);
 
     enemy.speedX = 15*Math.random()+10;
