@@ -4,7 +4,7 @@ class Game{
     this.ctx = this.canvas.getContext("2d");
 
     this.enemys = [];
-    this.nextEnemy = 300;
+    this.nextEnemy = 50;
 
     this.count = 0;
     this.score = 0;
@@ -61,7 +61,7 @@ class Game{
 
     if(this.count === this.nextEnemy){
       this.genEnemy();
-      this.nextEnemy += this.count + Math.floor(150*Math,random()); 
+      this.nextEnemy += this.count + Math.floor(5*Math.random())+10;
     }
   }
 
@@ -70,7 +70,7 @@ class Game{
    */
   draw(){
     this.player.draw(this.ctx);
-    this.enemy.draw(this.ctx);
+    this.enemys.forEach(e=>e.draw(this.ctx));
 
     //線
     this.ctx.beginPath();
@@ -87,14 +87,9 @@ class Game{
   }
 
   genEnemy(){
-    const image = random([
-      "./img/enemy.png",
-      "./img/enemy1.png"
-    ]);
+    const enemy = new Character("./img/enemy.png",1200,400 - (Math.random() > 0.5? 150 : 0),64);
 
-    const enemy = new Character(image,1200,400 - (Math.random() > 0.5? 40: 0),64);
-
-    enemy.speedX = 15 * Math.random();
+    enemy.speedX = Math.floor(10*Math.random()) + 10;
 
     this.enemys.push(enemy);
   }
@@ -103,7 +98,7 @@ class Game{
     if(event.code === "Space"){
       if(this.player.posY !== this.player.initPosY) return;
       
-      this.player.speedY = -25;
+      this.player.speedY = -30;
       this.player.accY = 1.5;
     }
   }
@@ -135,10 +130,6 @@ class Character{
       this.posY - this.image.height/2
     );
   }
-}
-
-function random(arr){
-  return arr[Math.floor(Math.random()*arr.length)];
 }
 
 const game = new Game();
