@@ -92,8 +92,8 @@ class Game{
 
   genEnemy(){
     const enemy = this.random([
-      new Character("./img/enemy1.png",1000,400 - (Math.random() < 0.75? 140 : 0),60),
-      new Character("./img/enemy2.png",1000,400,40)
+      new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
+      new Character("./img/enemy2.png",1000,420,40)
     ]);
 
     enemy.speedX = 15*Math.random()+10;
@@ -105,6 +105,7 @@ class Game{
     if(this.isGameOver){
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 
+      this.enemys = [];
       this.nextEnemy = 0;
       this.count = 0;
 
