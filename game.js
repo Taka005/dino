@@ -141,7 +141,7 @@ class Game{
       
       this.player.speedY = -30;
       this.player.accY = 1.5;
-    }else if(event.shiftKey && e.code === "Space"){
+    }else if(event.shiftKey && event.code === "Space"){
       if(this.player.posY !== 400) return;
       
       this.player.speedY = -15;
