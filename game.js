@@ -28,10 +28,10 @@ class Game{
 
     this.grounds = [
       new Block("./img/ground.png",0,464),
-      new Block("./img/ground.png",256,464),
-      new Block("./img/ground.png",512,464),
-      new Block("./img/ground.png",768,464),
-      new Block("./img/ground.png",1024,464)
+      new Block("./img/ground.png",257,464),
+      new Block("./img/ground.png",513,464),
+      new Block("./img/ground.png",769,464),
+      new Block("./img/ground.png",1025,464)
     ];
 
     this.loop = setInterval(()=>{
@@ -97,8 +97,8 @@ class Game{
 
     this.grounds.forEach(g=>{
       g.posX -= 5;
-      if(g.posX < -255){
-        g.posX = 1024;
+      if(g.posX < -256){
+        g.posX = 1025;
       }
     })
   }
