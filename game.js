@@ -135,6 +135,7 @@ class Game{
       new Character("./img/enemy3.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
       new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
       new Character("./img/enemy5.png",1000,400,64),
+      new Character("./img/enemy6.png",1000,410,25)
     ]);
 
     enemy.speedX = 15*Math.random()+10;
