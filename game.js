@@ -17,10 +17,10 @@ class Game{
     this.player = new Character("./img/avatar.png",150,400,64);
 
     this.grounds = [
-      new Block("./img/ground.png",0,this.player.initPosY + this.player.image.height/2),
-      new Block("./img/ground.png",256,this.player.initPosY + this.player.image.height/2),
-      new Block("./img/ground.png",512,this.player.initPosY + this.player.image.height/2),
-      new Block("./img/ground.png",768,this.player.initPosY + this.player.image.height/2),
+      new Block("./img/ground.png",0,400),
+      new Block("./img/ground.png",256,400),
+      new Block("./img/ground.png",512,400),
+      new Block("./img/ground.png",768,400),
     ];
 
     this.loop = setInterval(()=>{
@@ -47,8 +47,8 @@ class Game{
     this.player.speedY += this.player.accY;
     this.player.posY += this.player.speedY;
 
-    if(this.player.posY > this.player.initPosY){
-      this.player.posY = this.player.initPosY;
+    if(this.player.posY > 400){
+      this.player.posY = 400;
       this.player.speedY = 0;
       this.player.accY = 0;
     }
@@ -88,7 +88,10 @@ class Game{
   }
 
   genEnemy(){
-    const enemy = new Character("./img/enemy.png",1000,400 - (Math.random() > 0.75? 140 : 0),64);
+    const enemy = this.random([
+      new Character("./img/enemy1.png",1000,400 - (Math.random() < 0.75? 140 : 0),60),
+      new Character("./img/enemy2.png",1000,400,40)
+    ]);
 
     enemy.speedX = 15*Math.random()+10;
 
@@ -97,11 +100,15 @@ class Game{
 
   key(event){
     if(event.code === "Space"){
-      if(this.player.posY !== this.player.initPosY) return;
+      if(this.player.posY !== 400) return;
       
       this.player.speedY = -30;
       this.player.accY = 1.5;
     }
+  }
+
+  random(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
   }
 }
 
@@ -112,8 +119,6 @@ class Character{
 
     this.posX = posX;
     this.posY = posY;
-    this.initPosX = posX;
-    this.initPosY = posY;
 
     this.speedX = 0;
     this.speedY = 0;
