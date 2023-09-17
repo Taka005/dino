@@ -79,8 +79,7 @@ class Game{
     }
 
     this.enemys.forEach(enemy=>{
-      enemy.speedX += 0.001;
-      enemy.posX -= Math.round(enemy.speedX);
+      enemy.posX -= Math.floor(enemy.speedX);
 
       const diffX = this.player.posX - enemy.posX;
       const diffY = this.player.posY - enemy.posY;
@@ -137,7 +136,7 @@ class Game{
       new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
       new Character("./img/enemy5.png",1000,400,64),
       new Character("./img/enemy6.png",1000,410,25),
-      new Character("./img/enemy7.png",1000,400,64)
+      new Character("./img/enemy7.png",1000,400,60)
     ]);
 
     enemy.speedX = 15*Math.random()+10;
