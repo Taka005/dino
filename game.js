@@ -5,9 +5,11 @@ class Game{
 
     this.enemys = [];
     this.nextEnemy = 50;
-
     this.count = 0;
+
     this.score = 0;
+
+    this.isGameOver = false;
   }
 
   /**
@@ -17,10 +19,10 @@ class Game{
     this.player = new Character("./img/avatar.png",150,400,64);
 
     this.grounds = [
-      new Block("./img/ground.png",0,400),
-      new Block("./img/ground.png",256,400),
-      new Block("./img/ground.png",512,400),
-      new Block("./img/ground.png",768,400),
+      new Block("./img/ground.png",0,464),
+      new Block("./img/ground.png",256,464),
+      new Block("./img/ground.png",512,464),
+      new Block("./img/ground.png",768,464),
     ];
 
     this.loop = setInterval(()=>{
@@ -38,6 +40,7 @@ class Game{
    */
   stop(){
     clearInterval(this.loop);
+    this.isGameOver = true;
   }
 
   /**
@@ -99,7 +102,16 @@ class Game{
   }
 
   key(event){
-    if(event.code === "Space"){
+    if(this.isGameOver){
+      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+
+      this.nextEnemy = 0;
+      this.count = 0;
+
+      this.isGameOver = false;
+
+      this.start();
+    }else if(event.code === "Space"){
       if(this.player.posY !== 400) return;
       
       this.player.speedY = -30;
