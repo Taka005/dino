@@ -48,7 +48,7 @@ class Game{
     }
 
     this.enemys.forEach(enemy=>{
-      enemy.speedX += 0.005;
+      enemy.speedX += 0.001;
       enemy.posX -= Math.round(enemy.speedX);
 
       const diffX = this.player.posX - enemy.posX;
@@ -62,7 +62,7 @@ class Game{
 
     if(this.count === this.nextEnemy){
       this.genEnemy();
-      this.nextEnemy += Math.floor(this.count*Math,random()); 
+      this.nextEnemy += Math.floor(this.count*Math,random()+150); 
     }
   }
 
