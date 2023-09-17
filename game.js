@@ -50,7 +50,7 @@ class Game{
 
     this.ctx.font = "80pt Arial";
     this.ctx.fillStyle = "black";
-    this.ctx.fillText("GAME OVER",300,300);
+    this.ctx.fillText("GAME OVER",100,300);
   }
 
   /**
