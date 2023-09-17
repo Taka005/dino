@@ -111,7 +111,8 @@ class Game{
   genEnemy(){
     const enemy = this.random([
       new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
-      new Character("./img/enemy2.png",1000,425,40)
+      new Character("./img/enemy2.png",1000,425,40),
+      new Character("./img/enemy3.png",1000,425,4)
     ]);
 
     enemy.speedX = 15*Math.random()+10;
