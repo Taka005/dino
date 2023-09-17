@@ -17,10 +17,10 @@ class Game{
     this.player = new Character("./img/avatar.png",150,400,64);
 
     this.grounds = [
-      new Block("./img/ground.png",0,this.player.initPosX + this.player.image.height/2),
-      new Block("./img/ground.png",256,this.player.initPosX + this.player.image.height/2),
-      new Block("./img/ground.png",512,this.player.initPosX + this.player.image.height/2,0),
-      new Block("./img/ground.png",768,this.player.initPosX + this.player.image.height/2,0),
+      new Block("./img/ground.png",0,this.player.initPosY + this.player.image.height/2),
+      new Block("./img/ground.png",256,this.player.initPosY + this.player.image.height/2),
+      new Block("./img/ground.png",512,this.player.initPosY + this.player.image.height/2,0),
+      new Block("./img/ground.png",768,this.player.initPosY + this.player.image.height/2,0),
     ];
 
     this.loop = setInterval(()=>{
