@@ -16,6 +16,13 @@ class Game{
   start(){
     this.player = new Character("./img/avatar.png",150,400,64);
 
+    this.grounds = [
+      new Block("./img/ground.png",0,this.player.initPosX + this.player.image.height/2),
+      new Block("./img/ground.png",256,this.player.initPosX + this.player.image.height/2),
+      new Block("./img/ground.png",512,this.player.initPosX + this.player.image.height/2,0),
+      new Block("./img/ground.png",768,this.player.initPosX + this.player.image.height/2,0),
+    ];
+
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
       this.update();
@@ -72,13 +79,7 @@ class Game{
     this.player.draw(this.ctx);
     this.enemys.forEach(e=>e.draw(this.ctx));
 
-    //線
-    this.ctx.beginPath();
-    this.ctx.moveTo(0,this.player.initPosY + this.player.image.height/2);
-    this.ctx.lineTo(this.canvas.width,this.player.initPosY + this.player.image.height/2)
-    this.ctx.strokeStyle = "black";
-    this.ctx.lineWidth = 1;
-    this.ctx.stroke();
+    this.grounds.forEach(g=>g.draw(this.ctx));
 
     //スコア
     this.ctx.font = "20pt Arial";
@@ -128,6 +129,24 @@ class Character{
       this.image,
       this.posX - this.image.width/2,
       this.posY - this.image.height/2
+    );
+  }
+}
+
+class Block{
+  constructor(img,posX,posY){
+    this.image = new Image();
+    this.image.src = img;
+
+    this.posX = posX;
+    this.posY = posY;
+  }
+
+  draw(ctx){
+    ctx.drawImage(
+      this.image,
+      this.posX,
+      this.posY
     );
   }
 }
