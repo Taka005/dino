@@ -132,8 +132,8 @@ class Game{
     const enemy = this.random([
       new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
       new Character("./img/enemy2.png",1000,425,40),
-      new Character("./img/enemy3.png",1000,430 - (Math.random() > 0.85 ? 120 : 0),16),
-      new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.85 ? 120 : 0),16),
+      new Character("./img/enemy3.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
+      new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
       new Character("./img/enemy5.png",1000,400,64),
     ]);
 
