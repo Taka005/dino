@@ -100,23 +100,24 @@ class Game{
    */
   draw(){
     this.player.draw(this.ctx);
-    if(this.debug){
-      this.player.size(this.ctx);
-    }
-    
+
     this.enemys.forEach(e=>{
       e.draw(this.ctx);
-      if(this.debug){
-        e.size(this.ctx);
-      }
     });
-
+    
     this.grounds.forEach(g=>g.draw(this.ctx));
 
     //スコア
     this.ctx.font = "20pt Arial";
     this.ctx.fillStyle = "black";
     this.ctx.fillText(`ハイスコア: ${localStorage.score}  スコア: ${Math.round(this.score)}`,500,50);
+
+    if(this.debug){
+      this.player.size(this.ctx);
+      this.enemys.forEach(e=>{
+          e.size(this.ctx);
+      });  
+    }
   }
 
   genEnemy(){
@@ -155,7 +156,7 @@ class Game{
     }else if(event.code === "ShiftLeft"){
       if(this.player.posY !== 400) return;
       
-      this.player.speedY = -15;
+      this.player.speedY = -20;
       this.player.accY = 1.5;
     }else if(event.code === "KeyD"){
       if(this.debug){
