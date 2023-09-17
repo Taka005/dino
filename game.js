@@ -113,9 +113,9 @@ class Game{
     this.ctx.fillText(`ハイスコア: ${localStorage.score}  スコア: ${Math.round(this.score)}`,500,50);
 
     if(this.debug){
-      this.player.size(this.ctx);
+      this.player.drawSize(this.ctx);
       this.enemys.forEach(e=>{
-          e.size(this.ctx);
+          e.drawSize(this.ctx);
       });  
     }
   }
@@ -197,9 +197,10 @@ class Character{
     );
   }
 
-  size(ctx){
+  drawSize(ctx){
+    console.log("A")
     ctx.beginPath();
-    ctx.arc(this.posX,this.posY,this.size,0*Math.PI/180,360*Math.PI/180,false );
+    ctx.arc(this.posX,this.posY,this.size,0*Math.PI/180,360*Math.PI/180,false);
     ctx.strokeStyle = "red";
     ctx.lineWidth =1;
     ctx.stroke();
