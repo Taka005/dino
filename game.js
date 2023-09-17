@@ -19,8 +19,8 @@ class Game{
     this.grounds = [
       new Block("./img/ground.png",0,this.player.initPosY + this.player.image.height/2),
       new Block("./img/ground.png",256,this.player.initPosY + this.player.image.height/2),
-      new Block("./img/ground.png",512,this.player.initPosY + this.player.image.height/2,0),
-      new Block("./img/ground.png",768,this.player.initPosY + this.player.image.height/2,0),
+      new Block("./img/ground.png",512,this.player.initPosY + this.player.image.height/2),
+      new Block("./img/ground.png",768,this.player.initPosY + this.player.image.height/2),
     ];
 
     this.loop = setInterval(()=>{
