@@ -62,7 +62,7 @@ class Game{
 
     if(this.count === this.nextEnemy){
       this.genEnemy();
-      this.nextEnemy += Math.floor(this.count*Math,random()+150); 
+      this.nextEnemy += Math.floor(this.count+150*Math,random()); 
     }
   }
 
