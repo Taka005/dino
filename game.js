@@ -96,8 +96,8 @@ class Game{
     }
 
     this.grounds.forEach(g=>{
-      g.posX -= 3;
-      if(g.posX < -256){
+      g.posX -= 5;
+      if(g.posX < -255){
         g.posX = 1024;
       }
     })
