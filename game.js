@@ -15,7 +15,7 @@ class Game{
 
     this.ctx.font = "50pt Arial";
     this.ctx.fillStyle = "black";
-    this.ctx.fillText("キーを押してスタート...",150,300);
+    this.ctx.fillText("キーを押してスタート...",130,300);
   }
 
   /**
@@ -54,7 +54,7 @@ class Game{
     this.ctx.fillText("GAME OVER",120,300);
 
     this.ctx.font = "30pt Arial";
-    this.ctx.fillText("キーを押してスタート...",280,350);
+    this.ctx.fillText("キーを押してスタート...",250,350);
 
     if(localStorage.score < this.score){
       localStorage.score = Math.floor(this.score);
