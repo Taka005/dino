@@ -31,6 +31,7 @@ class Game{
       new Block("./img/ground.png",256,464),
       new Block("./img/ground.png",512,464),
       new Block("./img/ground.png",768,464),
+      new Block("./img/ground.png",1024,464)
     ];
 
     this.loop = setInterval(()=>{
@@ -87,12 +88,19 @@ class Game{
       }
     });
 
-    this.enemys.filter(e=>e.posX > -100);
+    this.enemys = this.enemys.filter(e=>e.posX > -100);
 
     if(this.count === this.nextEnemy){
       this.genEnemy();
       this.nextEnemy += Math.floor(80*Math.random()) + 50;
     }
+
+    this.grounds.forEach(g=>{
+      g.posX -= 3;
+      if(g.posX < -256){
+        g.posX = 1024;
+      }
+    })
   }
 
   /**
