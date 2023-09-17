@@ -15,7 +15,7 @@ class Game{
 
     this.ctx.font = "50pt Arial";
     this.ctx.fillStyle = "black";
-    this.ctx.fillText("キーを押してスタート...",130,300);
+    this.ctx.fillText("キーを押してスタート...",120,300);
 
     this.debug = false;
   }
@@ -24,7 +24,7 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.player = new Character("./img/avatar.png",150,400,55);
+    this.player = new Character("./img/avatar.png",150,400,60);
 
     this.grounds = [
       new Block("./img/ground.png",0,464),
@@ -132,8 +132,8 @@ class Game{
     const enemy = this.random([
       new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
       new Character("./img/enemy2.png",1000,425,40),
-      new Character("./img/enemy3.png",1000,448 - (Math.random() > 0.85 ? 120 : 0),16),
-      new Character("./img/enemy4.png",1000,448 - (Math.random() > 0.85 ? 120 : 0),16),
+      new Character("./img/enemy3.png",1000,430 - (Math.random() > 0.85 ? 120 : 0),16),
+      new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.85 ? 120 : 0),16),
       new Character("./img/enemy5.png",1000,400,64),
     ]);
 
