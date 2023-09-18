@@ -51,6 +51,8 @@ class Game{
       new Block("./img/ground.png",1024,464)
     ];
 
+    this.back = new Block("./img/back.png",0,0)
+
     this.loop = setInterval(()=>{
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
       this.update();
@@ -123,6 +125,8 @@ class Game{
    * 描画
    */
   draw(){
+    this.back.draw(this.ctx);
+
     this.player.draw(this.ctx);
 
     this.enemys.forEach(e=>{
