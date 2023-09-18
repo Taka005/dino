@@ -56,8 +56,7 @@ class Game{
     this.loop = setInterval(()=>{
       this.update();
 
-      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
-
+      if(this.isGameOver) return;
       this.draw();
 
       this.score += 0.2;
@@ -127,7 +126,7 @@ class Game{
    * 描画
    */
   draw(){
-    if(this.isGameOver) return;
+    this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 
     this.back.draw(this.ctx);
 
