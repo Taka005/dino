@@ -55,8 +55,6 @@ class Game{
 
     this.loop = setInterval(()=>{
       this.update();
-
-      if(this.isGameOver) return;
       this.draw();
 
       this.score += 0.2;
@@ -71,13 +69,6 @@ class Game{
     clearInterval(this.loop);
 
     this.isGameOver = true;
-
-    this.ctx.font = "80pt Arial";
-    this.ctx.fillStyle = "black";
-    this.ctx.fillText("GAME OVER",120,300);
-
-    this.ctx.font = "30pt Arial";
-    this.ctx.fillText("キーを押してスタート...",250,350);
 
     if(localStorage.score < this.score){
       localStorage.score = Math.floor(this.score);
@@ -148,6 +139,15 @@ class Game{
       this.enemys.forEach(e=>{
           e.drawSize(this.ctx);
       });  
+    }
+
+    if(this.isGameOver){
+      this.ctx.font = "80pt Arial";
+      this.ctx.fillStyle = "black";
+      this.ctx.fillText("GAME OVER",120,300);
+  
+      this.ctx.font = "30pt Arial";
+      this.ctx.fillText("キーを押してスタート...",250,350);  
     }
   }
 
