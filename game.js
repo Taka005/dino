@@ -1,4 +1,10 @@
+/**
+ * Game Class
+ */
 class Game{
+  /**
+   * 初期化   
+   */
   constructor(){
     this.canvas = document.getElementById("game");
     this.ctx = this.canvas.getContext("2d");
@@ -12,6 +18,8 @@ class Game{
 
     this.isStart = false;
     this.isGameOver = false;
+
+    this.debug = false;
 
     this.ctx.font = "50pt Arial";
     this.ctx.fillStyle = "black";
@@ -27,8 +35,6 @@ class Game{
 
     this.ctx.font = "20pt Arial";
     this.ctx.fillText("©︎2023 TAKA",350,590);
-
-    this.debug = false;
   }
 
   /**
@@ -138,6 +144,9 @@ class Game{
     }
   }
 
+  /**
+   * 障害物の生成
+   */
   genEnemy(){
     const enemy = this.random([
       new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
@@ -158,6 +167,10 @@ class Game{
     this.enemys.push(enemy);
   }
 
+  /**
+   * キー入力の制御
+   * @param {KeyboardEvent} event キー入力イベント 
+   */
   key(event){
     if(!this.isStart){
       this.isStart = true;
@@ -202,12 +215,27 @@ class Game{
     }
   }
 
+  /**
+   * 配列からランダムに抽出
+   * @param {Array} arr 元の配列  
+   * @returns {any} 抽出された要素
+   */
   random(arr){
     return arr[Math.floor(Math.random()*arr.length)];
   }
 }
 
+/**
+ * Character Class
+ */
 class Character{
+  /**
+   * 初期化
+   * @param {String} img 画像
+   * @param {Number} posX 描画するX座標
+   * @param {Number} posY 描画するY座標
+   * @param {Number} size 当たり判定
+   */
   constructor(img,posX,posY,size){
     this.image = new Image();
     this.image.src = img;
@@ -224,6 +252,10 @@ class Character{
     this.size = size;
   }
 
+  /**
+   * 描画
+   * @param {CanvasRenderingContext2D} ctx Canvas
+   */
   draw(ctx){
     ctx.drawImage(
       this.image,
@@ -232,6 +264,10 @@ class Character{
     );
   }
 
+  /**
+   * 当たり判定を描画
+   * @param {CanvasRenderingContext2D} ctx Canvas
+   */
   drawSize(ctx){
     ctx.beginPath();
     ctx.arc(this.posX,this.posY,this.size,0*Math.PI/180,360*Math.PI/180,false);
@@ -241,7 +277,16 @@ class Character{
   }
 }
 
+/**
+ * Block Class
+ */
 class Block{
+  /**
+   * 初期化
+   * @param {String} img 画像
+   * @param {Number} posX 描画するX座標
+   * @param {Number} posY 描画するY座標
+   */
   constructor(img,posX,posY){
     this.image = new Image();
     this.image.src = img;
@@ -250,6 +295,10 @@ class Block{
     this.posY = posY;
   }
 
+  /**
+   * 描画
+   * @param {CanvasRenderingContext2D} ctx 
+   */
   draw(ctx){
     ctx.drawImage(
       this.image,
