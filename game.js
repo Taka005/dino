@@ -54,8 +54,10 @@ class Game{
     this.back = new Block("./img/back.png",0,0)
 
     this.loop = setInterval(()=>{
-      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
       this.update();
+
+      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+
       this.draw();
 
       this.score += 0.2;
