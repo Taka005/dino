@@ -17,7 +17,6 @@ class Game{
     this.ctx.fillStyle = "black";
     this.ctx.fillText("キーを押してスタート...",120,300);
 
-    this.isFullScreen = false;
     this.debug = false;
   }
 
@@ -179,24 +178,14 @@ class Game{
         this.debug = true;
       }
     }else if(event.code === "KeyF"){
-      if(!this.isFullScreen){
-        if(this.canvas.requestFullscreen){
-          this.canvas.requestFullscreen(); 
-        }else if(this.canvas.webkitRequestFullscreen){
-          this.canvas.webkitRequestFullscreen();
-        }else if(this.canvas.mozRequestFullScreen){
-          this.canvas.mozRequestFullScreen();
-        }else if(this.canvas.msRequestFullscreen){
-          this.canvas.msRequestFullscreen(); 
-        }
-      }else{
-        if(document.webkitCancelFullScreen){
-          document.webkitCancelFullScreen();
-        }else if(document.mozCancelFullScreen){
-          document.mozCancelFullScreen();
-        }else{
-          document.exitFullscreen();
-        }
+      if(this.canvas.requestFullscreen){
+        this.canvas.requestFullscreen(); 
+      }else if(this.canvas.webkitRequestFullscreen){
+        this.canvas.webkitRequestFullscreen();
+      }else if(this.canvas.mozRequestFullScreen){
+        this.canvas.mozRequestFullScreen();
+      }else if(this.canvas.msRequestFullscreen){
+        this.canvas.msRequestFullscreen(); 
       }
     }
   }
@@ -232,7 +221,6 @@ class Character{
   }
 
   drawSize(ctx){
-    console.log("A")
     ctx.beginPath();
     ctx.arc(this.posX,this.posY,this.size,0*Math.PI/180,360*Math.PI/180,false);
     ctx.strokeStyle = "red";
