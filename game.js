@@ -157,21 +157,21 @@ class Game{
    */
   genEnemy(){
     const enemy = this.random([
-      new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.75 ? 140 : 0),60),
+      new Character("./img/enemy1.png",1000,400 - (Math.random() > 0.7 ? 140 : 0),60),
       new Character("./img/enemy2.png",1000,425,40),
-      new Character("./img/enemy3.png",1000,430 - (Math.random() > 0.85 ? 100 : 0),16),
-      new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.85 ? 80 : 0),16),
+      new Character("./img/enemy3.png",1000,430 - (Math.random() > 0.7 ? 100 : 0),16),
+      new Character("./img/enemy4.png",1000,430 - (Math.random() > 0.7 ? 80 : 0),16),
       new Character("./img/enemy5.png",1000,400,64),
       new Character("./img/enemy6.png",1000,410,25),
       new Character("./img/enemy7.png",1000,400,60),
       new Character("./img/enemy8.png",1000,430,35),
-      new Character("./img/enemy9.png",1000,400,60),
+      new Character("./img/enemy9.png",1000,400 - (Math.random() > 0.7 ? 150 : 0) ,60),
       new Character("./img/enemy10.png",1000,410,25),
       new Character("./img/enemy11.png",1000,420,38),
       new Character("./img/enemy12.png",1000,400,20)
     ]);
 
-    enemy.speedX = 15*Math.random()+10;
+    enemy.speedX = 20*Math.random()+10;
 
     this.enemys.push(enemy);
   }
