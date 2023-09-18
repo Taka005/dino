@@ -29,7 +29,7 @@ class Game{
     this.ctx.fillText("操作方法",370,400);
     this.ctx.font = "10pt Arial";
     this.ctx.fillText("ジャンプ: スペース/タッチ",360,418);
-    this.ctx.fillText("小ジャンプ: 左シフト",360,433);
+    this.ctx.fillText("小ジャンプ: シフト",360,433);
     this.ctx.fillText("当たり判定表示: D",360,448);
     this.ctx.fillText("フルスクリーン: F",360,463);
 
@@ -198,7 +198,7 @@ class Game{
       
       this.player.speedY = -30;
       this.player.accY = 1.5;
-    }else if(event.code === "ShiftLeft"){
+    }else if(event.code === "ShiftLeft"||event.code === "ShiftRight"){
       if(this.player.posY !== 400) return;
       
       this.player.speedY = -20;
