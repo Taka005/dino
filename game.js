@@ -21,6 +21,9 @@ class Game{
 
     this.debug = false;
 
+    this.back = new Block("./img/back.png",0,0);
+    this.back.draw(this.ctx);
+
     this.ctx.font = "50pt Arial";
     this.ctx.fillStyle = "black";
     this.ctx.fillText("キーを押してスタート...",120,300);
@@ -50,8 +53,6 @@ class Game{
       new Block("./img/ground.png",768,464),
       new Block("./img/ground.png",1024,464)
     ];
-
-    this.back = new Block("./img/back.png",0,0)
 
     this.loop = setInterval(()=>{
       this.update();
