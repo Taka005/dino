@@ -223,6 +223,34 @@ class Game{
   }
 
   /**
+   * タッチ操作
+   * @param {TouchEvent} event 
+   * @returns 
+   */
+  touch(event){
+    if(!this.isStart){
+      this.isStart = true;
+      this.start();
+    }else if(this.isGameOver){
+      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+
+      this.enemys = [];
+      this.nextEnemy = 0;
+      this.count = 0;
+      this.score = 0;
+
+      this.isGameOver = false;
+
+      this.start();
+    }else{
+      if(this.player.posY !== 400) return;
+      
+      this.player.speedY = -30;
+      this.player.accY = 1.5;
+    }
+  }
+
+  /**
    * 配列からランダムに抽出
    * @param {Array} arr 元の配列  
    * @returns {any} 抽出された要素
@@ -319,4 +347,8 @@ const game = new Game();
 
 document.addEventListener("keydown",(event)=>{
   game.key(event);
+});
+
+document.addEventListener("touchstart",(event)=>{
+  game.touch(event);
 });
