@@ -96,16 +96,6 @@ class Game{
       this.player.accY = 0;
     }
 
-    this.enemys.forEach(enemy=>{
-      enemy.posX -= Math.floor(enemy.speedX);
-
-      const diffX = this.player.posX - enemy.posX;
-      const diffY = this.player.posY - enemy.posY;
-      if(Math.sqrt(diffX*diffX + diffY*diffY) <= this.player.size + enemy.size){
-        this.stop();
-      }
-    });
-
     this.enemys = this.enemys.filter(e=>e.posX > -100);
 
     if(this.count === this.nextEnemy){
@@ -118,13 +108,25 @@ class Game{
       if(g.posX <= -256){
         g.posX = 893;
       }
-    })
+    });
+
+    this.enemys.forEach(enemy=>{
+      enemy.posX -= Math.floor(enemy.speedX);
+
+      const diffX = this.player.posX - enemy.posX;
+      const diffY = this.player.posY - enemy.posY;
+      if(Math.sqrt(diffX*diffX + diffY*diffY) <= this.player.size + enemy.size){
+        this.stop();
+      }
+    });
   }
 
   /**
    * 描画
    */
   draw(){
+    if(this.isGameOver) return;
+
     this.back.draw(this.ctx);
 
     this.player.draw(this.ctx);
