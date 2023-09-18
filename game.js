@@ -17,6 +17,17 @@ class Game{
     this.ctx.fillStyle = "black";
     this.ctx.fillText("キーを押してスタート...",120,300);
 
+    this.ctx.font = "15pt Arial";
+    this.ctx.fillText("操作方法",370,400);
+    this.ctx.font = "10pt Arial";
+    this.ctx.fillText("ジャンプ: スペース",360,418);
+    this.ctx.fillText("小ジャンプ: 左シフト",360,433);
+    this.ctx.fillText("当たり判定表示: D",360,448);
+    this.ctx.fillText("フルスクリーン: F",360,463);
+
+    this.ctx.font = "20pt Arial";
+    this.ctx.fillText("©︎2023 TAKA",350,590);
+
     this.debug = false;
   }
 
