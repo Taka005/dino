@@ -353,9 +353,11 @@ class Block{
 const game = new Game();
 
 document.addEventListener("keydown",(event)=>{
+  event.preventDefault()
   game.key(event);
 });
 
 document.addEventListener("touchstart",(event)=>{
+  event.preventDefault()
   game.touch(event);
 });
