@@ -222,6 +222,11 @@ class Game{
       }else if(this.canvas.msRequestFullscreen){
         this.canvas.msRequestFullscreen(); 
       }
+    }else if(event.code === "KeyP"){
+      const score = prompt("スコアを入力");
+      if(!isNaN(score)) return;
+
+      this.score = score;
     }
   }
 
@@ -250,7 +255,7 @@ class Game{
       
       this.player.speedY = -30;
       this.player.accY = 1.5;
-    }else{
+    }else if(event.touches[0].pageX < window.innerWidth/2){
       if(this.player.posY !== 400) return;
       
       this.player.speedY = -20;
