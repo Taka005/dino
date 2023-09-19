@@ -228,6 +228,8 @@ class Game{
       }else if(this.canvas.msRequestFullscreen){
         this.canvas.msRequestFullscreen(); 
       }
+    }else if(event.code === "KeyP"){
+      alert("一時停止中");
     }
   }
 
