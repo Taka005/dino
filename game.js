@@ -244,10 +244,15 @@ class Game{
       this.isGameOver = false;
 
       this.start();
-    }else{
+    }else if(event.touches[0].pageX > window.innerWidth/2){
       if(this.player.posY !== 400) return;
       
       this.player.speedY = -30;
+      this.player.accY = 1.5;
+    }else{
+      if(this.player.posY !== 400) return;
+      
+      this.player.speedY = -20;
       this.player.accY = 1.5;
     }
   }
