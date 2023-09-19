@@ -169,7 +169,8 @@ class Game{
       new Character("./img/enemy9.png",1000,400 - (Math.random() > 0.7 ? 150 : 0) ,60),
       new Character("./img/enemy10.png",1000,410,25),
       new Character("./img/enemy11.png",1000,420,38),
-      new Character("./img/enemy12.png",1000,400,20)
+      new Character("./img/enemy12.png",1000,400,20),
+      new Character("./img/enemy13.png",1000,425,32),
     ]);
 
     enemy.speedX = 10*Math.random()+10;
@@ -222,11 +223,6 @@ class Game{
       }else if(this.canvas.msRequestFullscreen){
         this.canvas.msRequestFullscreen(); 
       }
-    }else if(event.code === "KeyP"){
-      const score = Number(prompt("スコアを入力"));
-      if(isNaN(score)) return;
-
-      this.score = score;
     }
   }
 
