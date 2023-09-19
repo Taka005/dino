@@ -21,7 +21,7 @@ class Game{
 
     this.debug = false;
 
-    this.back = new Block("./img/back.png",0,0);
+    this.back = new Block("./img/back0.png",0,0);
     this.back.draw(this.ctx);
 
     this.ctx.font = "50pt Arial";
