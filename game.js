@@ -224,7 +224,7 @@ class Game{
       }
     }else if(event.code === "KeyP"){
       const score = prompt("スコアを入力");
-      if(!isNaN(score)) return;
+      if(isNaN(score)) return;
 
       this.score = score;
     }
