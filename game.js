@@ -21,8 +21,13 @@ class Game{
 
     this.debug = false;
 
-    this.back = new Block("./img/back0.png",0,0);
-    this.back.draw(this.ctx);
+    this.backs = [
+      new Block("./img/back1.png",0,0),
+      new Block("./img/back2.png",0,0),
+      new Block("./img/back3.png",0,0)
+    ];
+
+    this.backs[0].draw(this.ctx);
 
     this.ctx.font = "50pt Arial";
     this.ctx.fillStyle = "black";
@@ -93,7 +98,7 @@ class Game{
 
     if(this.count === this.nextEnemy){
       this.genEnemy();
-      this.nextEnemy += Math.floor(60*Math.random()) + 35;
+      this.nextEnemy += Math.floor(60*Math.random()) + 40;
     }
 
     this.grounds.forEach(g=>{
@@ -120,8 +125,7 @@ class Game{
   draw(){
     this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 
-    this.back.image.src = `./img/back${Math.floor(this.score/300)%3}.png`;
-    this.back.draw(this.ctx);
+    this.backs[Math.floor(this.score/300)%3].draw(this.ctx);
 
     this.player.draw(this.ctx);
 
