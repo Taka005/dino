@@ -20,6 +20,7 @@ class Game{
     this.isGameOver = false;
 
     this.debug = false;
+    this.isPause = false;
 
     this.backs = [
       new Block("./img/back1.png",0,0),
@@ -230,7 +231,12 @@ class Game{
         this.canvas.msRequestFullscreen(); 
       }
     }else if(event.code === "KeyP"){
-      alert("一時停止中");
+      if(!this.isPause){
+        this.isPause = true;
+        alert("一時停止中");
+      }else{
+        this.isPause = false;
+      }
     }
   }
 
