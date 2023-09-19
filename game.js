@@ -223,7 +223,7 @@ class Game{
         this.canvas.msRequestFullscreen(); 
       }
     }else if(event.code === "KeyP"){
-      const score = prompt("スコアを入力");
+      const score = Number(prompt("スコアを入力"));
       if(isNaN(score)) return;
 
       this.score = score;
