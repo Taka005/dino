@@ -171,7 +171,7 @@ class Game{
       new Character("./img/enemy12.png",1000,400,20)
     ]);
 
-    enemy.speedX = 15*Math.random()+10;
+    enemy.speedX = 10*Math.random()+10;
 
     this.enemys.push(enemy);
   }
