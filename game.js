@@ -120,6 +120,7 @@ class Game{
   draw(){
     this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 
+    this.back.image.src = `./img/back${Math.floor(this.score)/300%3}.png`;
     this.back.draw(this.ctx);
 
     this.player.draw(this.ctx);
