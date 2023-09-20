@@ -84,6 +84,7 @@ class Game{
     this.isGameOver = true;
 
     this.backAudio.pause();
+    this.backAudio.currentTime = 0;
 
     if(localStorage.score < this.score){
       localStorage.score = Math.floor(this.score);
