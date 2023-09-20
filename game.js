@@ -36,9 +36,9 @@ class Game{
     this.ctx.font = "15pt Arial";
     this.ctx.fillText("操作方法",370,400);
     this.ctx.font = "10pt Arial";
-    this.ctx.fillText("ジャンプ: スペース/タッチ",360,418);
-    this.ctx.fillText("小ジャンプ: シフト",360,433);
-    this.ctx.fillText("当たり判定表示: D",360,448);
+    this.ctx.fillText("ジャンプ: スペース/右タッチ",360,418);
+    this.ctx.fillText("小ジャンプ: シフト/左タッチ",360,433);
+    this.ctx.fillText("デバッグモード: D",360,448);
     this.ctx.fillText("フルスクリーン: F",360,463);
     this.ctx.fillText("一時停止: P",360,478);
 
