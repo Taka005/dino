@@ -147,14 +147,14 @@ class Game{
     this.ctx.fillStyle = "black";
     this.ctx.fillText(`ハイスコア: ${localStorage.score}  スコア: ${Math.round(this.score)}`,500,50);
 
-    this.ctx.font = "20pt Arial";
-    this.ctx.fillText(`${this.fps}FPS`,10,30);
-
     if(this.debug){
       this.player.drawSize(this.ctx);
       this.enemys.forEach(e=>{
           e.drawSize(this.ctx);
-      });  
+      });
+
+      this.ctx.font = "20pt Arial";
+      this.ctx.fillText(`${this.fps}FPS`,10,30);
     }
 
     if(this.isGameOver){
