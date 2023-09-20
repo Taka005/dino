@@ -47,6 +47,7 @@ class Game{
 
     //音声
     this.backAudio = new Audio("./audio/back.mp3");
+    this.backAudio.loop = true;
   }
 
   /**
