@@ -89,7 +89,7 @@ class Game{
    */
   update(){
     const nextTime = performance.now();
-    this.fps = Math.round(1000 / nextTime - this.lastTime);
+    this.fps = Math.round(1000 / (nextTime - this.lastTime));
     this.lastTime = nextTime;
 
     this.player.speedY += this.player.accY;
@@ -148,7 +148,7 @@ class Game{
     this.ctx.fillText(`ハイスコア: ${localStorage.score}  スコア: ${Math.round(this.score)}`,500,50);
 
     this.ctx.font = "20pt Arial";
-    this.ctx.fillText(`${this.fps}FPS`,10,10);
+    this.ctx.fillText(`${this.fps}FPS`,20,10);
 
     if(this.debug){
       this.player.drawSize(this.ctx);
