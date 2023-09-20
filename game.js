@@ -234,7 +234,7 @@ class Game{
       }
     }else if(event.code === "KeyP"){
       alert("一時停止中");
-    }else if(event.code === "KeyJ"){
+    }else if(event.code === "KeyT"){
       this.enemys.forEach(e=>{
         e.smallJump();
       });
