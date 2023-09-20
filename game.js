@@ -14,7 +14,7 @@ class Game{
     this.count = 0;
 
     this.score = 0;
-    localStorage.setItem("score",0);
+    localStorage.score = localStorage.score || 0;
 
     this.isStart = false;
     this.isGameOver = false;
@@ -80,7 +80,7 @@ class Game{
     this.isGameOver = true;
 
     if(localStorage.score < this.score){
-      localStorage.setItem("score",Math.floor(this.score));
+      localStorage.score = Math.floor(this.score);
     }
   }
 
@@ -145,7 +145,7 @@ class Game{
     //スコア
     this.ctx.font = "20pt Arial";
     this.ctx.fillStyle = "black";
-    this.ctx.fillText(`ハイスコア: ${localStorage.getItem("score")}  スコア: ${Math.round(this.score)}`,500,50);
+    this.ctx.fillText(`ハイスコア: ${localStorage.score}  スコア: ${Math.round(this.score)}`,500,50);
 
     if(this.debug){
       this.player.drawSize(this.ctx);
