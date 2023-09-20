@@ -53,7 +53,6 @@ class Game{
    * ゲームのスタート
    */
   start(){
-    this.backAudio.play();
     this.player = new Character("./img/avatar.png",150,400,60);
 
     this.grounds = [
@@ -202,7 +201,7 @@ class Game{
    * @param {KeyboardEvent} event キー入力イベント 
    */
   key(event){
-    this.backAudio.load();
+    this.backAudio.play();
 
     if(!this.isStart){
       this.isStart = true;
@@ -248,7 +247,7 @@ class Game{
    * @param {TouchEvent} event タッチイベント
    */
   touch(event){
-    this.backAudio.load();
+    this.backAudio.play();
 
     if(!this.isStart){
       this.isStart = true;
