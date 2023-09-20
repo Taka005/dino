@@ -60,6 +60,8 @@ class Game{
       new Block("./img/ground.png",1024,464)
     ];
 
+    this.lastTime = performance.now();
+
     this.loop = setInterval(()=>{
       this.update();
       this.draw();
@@ -86,6 +88,10 @@ class Game{
    * 更新
    */
   update(){
+    const nextTime = performance.now();
+    this.fps = Math.round(1000 / nextTime - this.lastTime);
+    this.lastTime = nextTime;
+
     this.player.speedY += this.player.accY;
     this.player.posY += this.player.speedY;
 
@@ -140,6 +146,9 @@ class Game{
     this.ctx.font = "20pt Arial";
     this.ctx.fillStyle = "black";
     this.ctx.fillText(`ハイスコア: ${localStorage.score}  スコア: ${Math.round(this.score)}`,500,50);
+
+    this.ctx.font = "20pt Arial";
+    this.ctx.fillText(`${this.fps}FPS`,10,10);
 
     if(this.debug){
       this.player.drawSize(this.ctx);
