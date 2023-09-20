@@ -46,7 +46,7 @@ class Game{
     this.ctx.fillText("©︎2023 TAKA",350,590);
 
     //音声
-    this.backAudio = new Audio("./audio/back.wav");
+    this.backAudio = new Audio("./audio/back.mp3");
     this.backAudio.play();
 	  this.backAudio.loop = true;
   }
