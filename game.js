@@ -213,15 +213,9 @@ class Game{
 
       this.start();
     }else if(event.code === "Space"){
-      if(this.player.posY !== 400) return;
-      
-      this.player.speedY = -30;
-      this.player.accY = 1.5;
+      this.player.jump();
     }else if(event.code === "ShiftLeft"||event.code === "ShiftRight"){
-      if(this.player.posY !== 400) return;
-      
-      this.player.speedY = -20;
-      this.player.accY = 1.5;
+      this.player.smallJump();
     }else if(event.code === "KeyD"){
       if(this.debug){
         this.debug = false;
@@ -245,8 +239,7 @@ class Game{
 
   /**
    * タッチ操作
-   * @param {TouchEvent} event 
-   * @returns 
+   * @param {TouchEvent} event タッチイベント
    */
   touch(event){
     if(!this.isStart){
@@ -264,15 +257,9 @@ class Game{
 
       this.start();
     }else if(event.touches[0].pageX > window.innerWidth/2){
-      if(this.player.posY !== 400) return;
-      
-      this.player.speedY = -30;
-      this.player.accY = 1.5;
+      this.player.jump();
     }else if(event.touches[0].pageX < window.innerWidth/2){
-      if(this.player.posY !== 400) return;
-      
-      this.player.speedY = -20;
-      this.player.accY = 1.5;
+      this.player.smallJump();
     }
   }
 
@@ -335,6 +322,26 @@ class Character{
     ctx.strokeStyle = "red";
     ctx.lineWidth =1;
     ctx.stroke();
+  }
+
+  /**
+   * ジャンプ
+   */
+  jump(){
+    if(this.posY !== 400) return;
+      
+    this.speedY = -30;
+    this.accY = 1.5;
+  }
+
+  /**
+   * 小ジャンプ
+   */
+  smallJump(){
+    if(this.posY !== 400) return;
+      
+    this.speedY = -20;
+    this.accY = 1.5;
   }
 }
 
