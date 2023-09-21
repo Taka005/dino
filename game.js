@@ -258,9 +258,9 @@ class Game{
     }else if(event.code === "KeyP"){
       alert("一時停止中");
     }else if(event.code === "KeyU"){
-      this.backAudio.volume ++;
+      this.audios.forEach(audio=>audio.volume ++);
     }else if(event.code === "KeyI"){
-      this.backAudio.volume --;
+      this.audios.forEach(audio=>audio.volume --);
     }
   }
 
