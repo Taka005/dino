@@ -43,7 +43,8 @@ class Game{
     this.ctx.fillText("デバッグモード: D",360,448);
     this.ctx.fillText("フルスクリーン: F",360,463);
     this.ctx.fillText("一時停止: P",360,478);
-    this.ctx.fillText("音量UP/DOWN: U/I",360,493);
+    this.ctx.fillText("音量を上げる: U",360,493);
+    this.ctx.fillText("音量を下げる: I",360,508);
 
     this.ctx.font = "20pt Arial";
     this.ctx.fillText("©︎2023 TAKA",350,590);
