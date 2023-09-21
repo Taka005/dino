@@ -47,8 +47,12 @@ class Game{
     this.ctx.fillText("©︎2023 TAKA",350,590);
 
     //音声
-    this.backAudio = new Audio("./audio/back.mp3");
-    this.backAudio.loop = true;
+    this.audios = [
+      new Audio("./audio/back.mp3"),
+      new Audio("./audio/gameover.mp3")
+    ];
+    
+    this.audios[0].loop = true;
   }
 
   /**
@@ -84,8 +88,9 @@ class Game{
 
     this.isGameOver = true;
 
-    this.backAudio.pause();
-    this.backAudio.currentTime = 0;
+    this.audios[0].pause();
+    this.audios[0].currentTime = 0;
+    this.audios[1].play();
 
     if(localStorage.score < this.score){
       localStorage.score = Math.floor(this.score);
@@ -206,7 +211,7 @@ class Game{
    * @param {KeyboardEvent} event キー入力イベント 
    */
   key(event){
-    this.backAudio.play();
+    this.audios[0].play();
 
     if(!this.isStart){
       this.isStart = true;
@@ -256,7 +261,7 @@ class Game{
    * @param {TouchEvent} event タッチイベント
    */
   touch(event){
-    this.backAudio.play();
+    this.audios[0].play();
 
     if(!this.isStart){
       this.isStart = true;
