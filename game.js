@@ -19,6 +19,8 @@ class Game{
     this.isStart = false;
     this.isGameOver = false;
 
+    this.isAudioLoad = false;
+
     this.debug = false;
 
     this.backs = [
@@ -211,6 +213,11 @@ class Game{
    * @param {KeyboardEvent} event キー入力イベント 
    */
   key(event){
+    if(!this.isAudioLoad){
+      this.audios.forEach(audio=>audio.load());
+      this.isAudioLoad = true;
+    }
+    
     this.audios[0].play();
 
     if(!this.isStart){
@@ -261,6 +268,11 @@ class Game{
    * @param {TouchEvent} event タッチイベント
    */
   touch(event){
+    if(!this.isAudioLoad){
+      this.audios.forEach(audio=>audio.load());
+      this.isAudioLoad = true;
+    }
+
     this.audios[0].play();
 
     if(!this.isStart){
