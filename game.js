@@ -373,7 +373,7 @@ class Character{
    */
   smallJump(){
     if(this.posY !== 400) return;
-      
+
     this.speedY = -20;
     this.accY = 1.5;
   }
